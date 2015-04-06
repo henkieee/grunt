@@ -4,3 +4,5 @@ class Henker {
         return "<h1>" + this.henker + "</h1>";
     }
 };
+
+console.log('testerdetesttter');

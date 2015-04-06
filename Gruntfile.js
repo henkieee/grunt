@@ -25,12 +25,34 @@ module.exports = function(grunt) {
 				'-W032': false
 			},
 			files: ['clean/js/*js']
+		},
+		uglify: {
+			development: {
+				files: [{
+					expand: true,
+					cwd: 'clean/',
+					src: '**/*.js',
+					dest: 'clean/'
+				}] 
+			},
+			options: {
+				compress: {
+					drop_console: true
+				}
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-typescript');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask('default', ['typescript', 'jshint']);
+	grunt.registerTask('default', [
+			'clean',
+			'typescript', 
+			'jshint',
+			'uglify'
+			]
+		);
 };
