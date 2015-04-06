@@ -9,8 +9,8 @@ module.exports = function(grunt) {
 			options: {
 
 			},
-			files: ['clean/*'],
-			onlyjs: ['clean/**/*.js']
+			files: ['dist/*'],
+			onlyjs: ['dist/**/*.js']
 		},
 		typescript: {
 			options: {
@@ -18,8 +18,8 @@ module.exports = function(grunt) {
 				//ignores: ['typescript/js/lala.js']
 			},
 			all: {
-				src: ['typescript/js/*ts', '!typescript/js/lala.js'],
-				dest: 'clean/js/main.js'
+				src: ['dev/js/*ts', '!dev/js/lala.js'],
+				dest: 'dist/js/main.js'
 			}
 		},
 		jshint: {
@@ -28,15 +28,15 @@ module.exports = function(grunt) {
 				'-W804': false,
 				'-W032': false
 			},
-			files: ['clean/js/*js']
+			files: ['dist/js/*js']
 		},
 		uglify: {
 			development: {
 				files: [{
 					expand: true,
-					cwd: 'clean/',
+					cwd: 'dist/',
 					src: '**/*.js',
-					dest: 'clean/'
+					dest: 'dist/'
 				}] 
 			},
 			options: {
