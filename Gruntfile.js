@@ -6,7 +6,11 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		clean: {
-			output: ['clean/*']
+			options: {
+
+			},
+			files: ['clean/*'],
+			onlyjs: ['clean/**/*.js']
 		},
 		typescript: {
 			options: {
